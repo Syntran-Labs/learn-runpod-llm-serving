@@ -14,7 +14,7 @@ risk on the normal path), **L** = low (quality / docs; no runtime risk).
 
 ---
 
-## H3 — `up.py` stalls after setup completes: EOF does not end the proxy session (OPEN, observed live 2026-07-04)
+## H3 — `up.py` stalls after setup completes: EOF does not end the proxy session (FIXED 2026-07-08, validated live)
 
 - **Where:** `up.py` `run_setup()` (feeds `setup.sh` as the ssh process's stdin
   and waits for the session to close)
@@ -35,6 +35,13 @@ risk on the normal path), **L** = low (quality / docs; no runtime risk).
   the script). Then re-test the unattended full run.
 - **Status (2026-07-04):** `exit 0` appended to `setup.sh` (approved change).
   Remains OPEN until the unattended full run is re-tested on the next deploy.
+- **Status (2026-07-08): FIXED** — validated on the next fresh deploy (third
+  pod, $0.22/hr RTX 3090 host): the typed `exit 0` closed the proxy session on
+  its own and `up.py` advanced unattended through relay → health check (passed
+  on attempt 1) → benchmark → report, zero manual intervention. Full session
+  (deploy → report) ~25 min. Results in `results/report-20260708T032850Z.md`
+  agree with the two previous sessions within ~3% (LONG gen 169.8 tok/s,
+  pp ~5,700 tok/s, TTFT 0.99 s; SHORT gen ~193 tok/s median).
 
 ## L5 — setup.sh's final hint suggests `ssh -L`, a dead path on this host
 

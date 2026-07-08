@@ -1,17 +1,19 @@
 <div align="center">
 
-# 🚀 runpod-llm-serving
+# 🚀 learn-runpod-llm-serving
 
 **Self-hosted LLM serving on a GPU cloud marketplace — deployment, benchmarking, and cost analysis**
 
+![Track](https://img.shields.io/badge/Syntran%20Labs-Learning%20Track-purple?style=flat-square)
 ![Status](https://img.shields.io/badge/status-active_experiment-orange?style=flat-square)
 ![License](https://img.shields.io/badge/license-Apache_2.0-blue?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)
 ![GPU](https://img.shields.io/badge/GPU-RTX_3090_24GB-76B900?style=flat-square&logo=nvidia&logoColor=white)
 ![Model](https://img.shields.io/badge/model-GPT--OSS--20B_MXFP4-blue?style=flat-square)
 ![Serving](https://img.shields.io/badge/serving-llama.cpp_server-lightgrey?style=flat-square)
 ![Cloud](https://img.shields.io/badge/cloud-RunPod_Community-673AB7?style=flat-square)
 
-*Part of the [Syntran Labs](https://github.com/Syntran-Labs) AI Engineering portfolio — LLMOps track*
+*Part of the Syntran Labs [Learning Lab](https://github.com/Syntran-Labs/learning-lab) — LLMOps track*
 
 </div>
 
@@ -124,7 +126,7 @@ day one — the part tutorials skip) →
 ## 📁 Repo structure
 
 ```
-runpod-llm-serving/
+learn-runpod-llm-serving/
 ├── README.md                  ← you are here
 ├── RUNBOOK.md                 ← end-to-end pod operations (the manual path)
 ├── BENCHMARK.md               ← methodology and results

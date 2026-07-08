@@ -1,4 +1,4 @@
-# runpod-llm-serving — Project Instructions
+# learn-runpod-llm-serving — Project Instructions
 
 ## Governance
 

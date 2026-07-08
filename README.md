@@ -70,6 +70,45 @@ derivation from the RunPod API, ssh-agent handling, in-pod setup (`setup.sh`),
 the local HTTP relay, and the benchmark report. The manual step-by-step
 procedure remains documented in [RUNBOOK.md](RUNBOOK.md).
 
+> ⚠️ **During setup your terminal will look broken — it isn't.** RunPod's SSH proxy
+> forces an interactive PTY that echoes every line `up.py` types into the pod, so you
+> will see `setup.sh`'s text duplicated and mangled, interleaved with `root@...#`
+> prompts. That's cosmetic. The real signal is the step markers:
+> `=== [n/5] ... ===` → `done (Xs)` — five of those, then the benchmark report.
+> (Full explanation of the proxy's quirks: `scripts/pod_ops/relay_tunnel.py`.)
+
+### 💬 Talk to your model
+
+When `up` finishes, the pod is still running and serving. Start the relay in a
+terminal (it stays open — that's your local gateway to the pod):
+
+```bash
+python -m scripts.pod_ops.relay_tunnel
+```
+
+Then point **any** OpenAI-compatible client at it:
+
+```python
+# pip install openai   (or use plain httpx/curl — it's just HTTP)
+from openai import OpenAI
+client = OpenAI(base_url="http://localhost:8080/v1", api_key="not-needed")
+r = client.chat.completions.create(
+    model="gpt-oss-20b",
+    messages=[{"role": "user", "content": "Explain MoE models in one paragraph."}],
+)
+print(r.choices[0].message.content)
+```
+
+Remember: the pod bills while it runs (~$0.27/hr). When you're done experimenting,
+`python -m scripts.pod_ops.down --yes` puts your spend back to exactly $0.
+
+**Want to understand how and why?** Suggested reading order:
+[RUNBOOK.md](RUNBOOK.md) (the manual procedure behind the automation) →
+[BENCHMARK.md](BENCHMARK.md) (methodology and numbers) →
+[SESSION-LOG-2026-07-02.md](SESSION-LOG-2026-07-02.md) (what actually went wrong on
+day one — the part tutorials skip) →
+[KNOWN-ISSUES.md](KNOWN-ISSUES.md) (what's still imperfect, each with its planned fix).
+
 ## 🧩 Stack
 
 | Component | Choice | Status |

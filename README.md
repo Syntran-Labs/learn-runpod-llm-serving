@@ -5,6 +5,7 @@
 **Self-hosted LLM serving on a GPU cloud marketplace — deployment, benchmarking, and cost analysis**
 
 ![Track](https://img.shields.io/badge/Syntran%20Labs-Learning%20Track-purple?style=flat-square)
+![CI](https://github.com/Syntran-Labs/learn-runpod-llm-serving/actions/workflows/ci.yml/badge.svg)
 ![Status](https://img.shields.io/badge/status-active_experiment-orange?style=flat-square)
 ![License](https://img.shields.io/badge/license-Apache_2.0-blue?style=flat-square)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)
@@ -25,7 +26,9 @@ Deploy an open-weights LLM (**GPT-OSS-20B**, MoE — 21B total / 3.6B active par
 
 **The LLMOps thesis of this experiment:** the same client code (`base_url` + `/v1`) should point interchangeably at local Ollama, this pod, or a serverless API — switching inference backends should be a configuration change, not a code change.
 
-**Who this is for:** anyone experimenting with AI who wants a real, low-cost LLM endpoint of their own — a 20B-class model at ~$0.27/hr while it runs, $0 when terminated, no GPU purchase, and no data leaving your SSH session. Every step (including the failures) is documented so you can reproduce it end to end.
+**Who this is for:** anyone experimenting with AI who wants a real, low-cost LLM endpoint of their own — a 20B-class model at ~$0.27/hr while it runs, $0 when terminated, no GPU purchase. No public endpoint, no third-party managed inference API, and no prompts sent to a hosted model provider — access stays behind your SSH-authenticated relay to the RunPod instance. Every step (including the failures) is documented so you can reproduce it end to end.
+
+> This is a Learning Lab project with Systems Lab-grade operational discipline: the goal is educational reproducibility, not a managed production service.
 
 ## 📊 Results (formal benchmark — 3 runs × 2 scenarios × 2 sessions)
 

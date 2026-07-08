@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-07-02T00:05:00+00:00",
+  "scenario": "short",
+  "run_index": 2,
+  "model": "some-openrouter-model",
+  "base_url_host": "https://openrouter.ai",
+  "config_snapshot": {"model": "some-openrouter-model", "timeout_s": 120.0, "pod_rate_usd_hr": null},
+  "ok": true,
+  "error": null,
+  "metrics_source": "wall_clock",
+  "wall_clock_s": 3.2,
+  "response": {
+    "id": "chatcmpl-no-timings",
+    "object": "chat.completion",
+    "created": 1751414700,
+    "model": "some-openrouter-model",
+    "choices": [
+      {
+        "index": 0,
+        "message": {"role": "assistant", "content": "A brief answer."},
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {"prompt_tokens": 80, "completion_tokens": 150, "total_tokens": 230}
+  }
+}

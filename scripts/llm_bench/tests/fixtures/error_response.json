@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-07-02T00:10:00+00:00",
+  "scenario": "long",
+  "run_index": 2,
+  "model": "gpt-oss-20b",
+  "base_url_host": "http://localhost:8080",
+  "config_snapshot": {"model": "gpt-oss-20b", "timeout_s": 120.0, "pod_rate_usd_hr": 0.25},
+  "ok": false,
+  "error": "timeout: read timed out after 120.0s",
+  "metrics_source": null,
+  "wall_clock_s": 120.0,
+  "response": null
+}

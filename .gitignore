@@ -1,0 +1,33 @@
+# Live infrastructure data — NEVER commit
+*.local.md
+SENSITIVE*
+
+# Keys and credentials (defense in depth)
+*.pem
+*.key
+id_ed25519*
+.env
+.env.*
+# ...but the template ships with the repo (it contains no real values)
+!.env.example
+
+# Models and heavy artifacts
+*.gguf
+*.safetensors
+
+# Uncurated local benchmark outputs
+bench-output/
+*.raw.log
+results/raw/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Claude Code settings — machine-specific paths/permissions, never useful to others
+.claude/settings.json
+.claude/settings.local.json
+
+# System
+.DS_Store
+Thumbs.db

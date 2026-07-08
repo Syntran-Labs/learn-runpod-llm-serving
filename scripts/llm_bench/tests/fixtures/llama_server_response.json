@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-07-02T00:00:00+00:00",
+  "scenario": "short",
+  "run_index": 1,
+  "model": "gpt-oss-20b",
+  "base_url_host": "http://localhost:8080",
+  "config_snapshot": {"model": "gpt-oss-20b", "timeout_s": 120.0, "pod_rate_usd_hr": 0.25},
+  "ok": true,
+  "error": null,
+  "metrics_source": "timings",
+  "wall_clock_s": 1.15,
+  "response": {
+    "id": "chatcmpl-syntran-smoke",
+    "object": "chat.completion",
+    "created": 1751414400,
+    "model": "gpt-oss-20b",
+    "choices": [
+      {
+        "index": 0,
+        "message": {"role": "assistant", "content": "A 1D CA evolves cells on a line; a 2D CA evolves cells on a grid with neighbors in both dimensions."},
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {"prompt_tokens": 81, "completion_tokens": 168, "total_tokens": 249},
+    "timings": {
+      "prompt_n": 81,
+      "prompt_ms": 233.7,
+      "prompt_per_second": 346.6,
+      "predicted_n": 168,
+      "predicted_ms": 888.9,
+      "predicted_per_second": 189.0
+    }
+  }
+}
